@@ -1,13 +1,15 @@
-public class Player {
-    private int id;
-    private int money;
-    private int totalDebt;
-    private Property property[]=new Property [60];
-    private int totalAssetPrice;
-    private int debtToPlayers;
-    private int debtToBanks;
+public class Player extends Board {
+     int id;
+     int money;
+     int totalDebt;
+     Property property[]=new Property [60];
+     int totalAssetPrice;
+   public int debtToPlayers;
+     int debtToBanks;
     int currentLocation;
-    private boolean isJail=false;
-    private boolean isBankruptcy=false;
+     boolean isJail=false;
+     boolean isBankruptcy=false;
+
+public int asd;
 
 }
