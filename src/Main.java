@@ -33,7 +33,7 @@ public class Main {
         Card goToStart = new Card();
         goToStart.setGoToSquare(0);
 
-        Property istiklalCaddesi = new Property();
+
 
 
 
@@ -76,25 +76,40 @@ public class Main {
             squares[18].description = "Maltepe ($180) - Orange";
             squares[19].description = "Pendik ($200) - Orange";
             squares[20].description = "Free Parking";
+            Property Besiktas = new Property(200,100,400,400,"Red");
             squares[21].description = "Beşiktaş ($220) - Red";
             squares[22].description = "Chance";
             squares[23].description = "Ortaköy ($220) - Red";
+            Property Ortakoy = new Property(220,110,440,440,"Red");
             squares[24].description = "Bebek ($240) - Red";
+            Property Bebek = new Property(240,120,480,480,"Red");
+            Property Marmaray = new Property(200,100,400,"White");
             squares[25].description = "Marmaray istasyonu ($200)";
+
             squares[26].description = "Beylikdüzü ($260) - Yellow";
+            Property Beylikduzu = new Property(260,130,520,520,"Yellow");
             squares[27].description = "Avcılar ($260) - Yellow";
+            Property Avcılar = new Property(260,130,520,520,"Yellow");
             squares[28].description = "İski ($150)";
+            Property Iski = new Property(150,75,300,"White");
             squares[29].description = "Küçükçekmece ($280) - Yellow";
+            Property Kucukcekmece = new Property(280,140,560,560,"Yellow");
             squares[30].description = "Go to Jail";
             squares[31].description = " Fatih($300) - Green";
+            Property Fatih = new Property(300,150,600,600,"Green");
             squares[32].description = " Taksim($300) - Green";
+            Property Taksim = new Property(300,150,600,600,"Green");
             squares[33].description = "Community Chest";
+            Property Karakoy = new Property(300,150,600,600,"Green");
             squares[34].description = " Karaköy($300) - Green";
             squares[35].description = "Durak ($200)";
+            Property Durak = new Property(200,100,400,"White");
             squares[36].description = "Chance";
             squares[37].description = " Dudullu($350) - NavyBlue";
+            Property Dudullu = new Property(350,175,700,700,"NavyBlue");
             squares[38].description = " Tax (75) ";
             squares[39].description = " Tuzla($400) - NavyBlue";
+            Property Tuzla = new Property(400,200,400,800,"NavyBlue");
         }
 
 

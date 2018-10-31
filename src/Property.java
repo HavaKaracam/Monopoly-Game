@@ -9,6 +9,21 @@ class Property {
     boolean isMortgage=false;
     boolean hasOwner=false;
 
+    public Property(int price, int rent, int housePrice, int mortgagePrice, String color) {
+        this.price = price;
+        this.rent = rent;
+        this.housePrice = housePrice;
+        this.mortgagePrice = mortgagePrice;
+        this.color = color;
+    }
+
+    public Property(int price, int rent, int mortgagePrice, String color) {
+        this.price = price;
+        this.rent = rent;
+        this.mortgagePrice = mortgagePrice;
+        this.color = color;
+    }
+
     public String getPropertyName() {
         return propertyName;
     }
