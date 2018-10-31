@@ -1,4 +1,4 @@
-public class Player extends Board {
+public class Player {
      int id;
      int money;
      int totalDebt;
@@ -10,6 +10,7 @@ public class Player extends Board {
      boolean isJail=false;
      boolean isBankruptcy=false;
 
-public int asd;
-
+    public Player(int id) {
+        this.id = id;
+    }
 }

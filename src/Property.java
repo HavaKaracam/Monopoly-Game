@@ -1,4 +1,5 @@
 class Property {
+    private String propertyName;
     private int price;
     private int rent;
     private int housePrice;

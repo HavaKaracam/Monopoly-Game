@@ -1,8 +1,9 @@
 
-public class Board{
+public class Board extends Player{
 
-	Player player = new Player();
-	
+	Player[] playerArray = new Player[4];
+
+	playerArray[0] = new Player(2);
 
 
 	
