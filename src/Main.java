@@ -212,26 +212,26 @@ public class Main {
                 System.out.println("Player" + currentPlayer + "'s turn. Player's dice is " + currentDice);//print the current player and his/her dice
 
                 //move the player by the number of dice and print which square she/he is on
-                playerArray[currentPlayer].currentLocation += currentDice;
-                System.out.println("Player " + currentPlayer + " is current on " + squares[playerArray[currentPlayer].currentLocation].getDescription() + " square");
+                playerArray[currentPlayer].setCurrentLocation(playerArray[currentPlayer].getCurrentLocation() + currentDice);
+                System.out.println("Player " + currentPlayer + " is current on " + squares[playerArray[currentPlayer].getCurrentLocation()].getDescription() + " square");
 
                 //if player exceeds the number of squares. he come to the start point and start again. and earn $200
-                if (playerArray[currentPlayer].currentLocation > 39) {
-                    playerArray[currentPlayer].currentLocation -= 40;
-                    playerArray[currentPlayer].money +=200;
+                if (playerArray[currentPlayer].getCurrentLocation() > 39) {
+                    playerArray[currentPlayer].setCurrentLocation(playerArray[currentPlayer].getCurrentLocation() - 40);
+                    playerArray[currentPlayer].setMoney(playerArray[currentPlayer].getMoney() + 200);
                 }
 
                 //when player come to a property square.
-                if (squares[playerArray[currentPlayer].currentLocation].getProperty().getColor() != null) {//property check
-                    System.out.println("Your money before the purchase is: " + playerArray[currentPlayer].money);//print the players money before the purchase
+                if (squares[playerArray[currentPlayer].getCurrentLocation()].getProperty().getColor() != null) {//property check
+                    System.out.println("Your money before the purchase is: " + playerArray[currentPlayer].getMoney());//print the players money before the purchase
                     System.out.println("Do you want to purchase this property. Press y for yes");//prompt the user if she/he wants to buy this property
                     String answer = input.next();//get the answer
 
                     //if player accept the purchase. the cost of the property will be taken from the player
                     if (answer.contentEquals("y")) {
 
-                        playerArray[currentPlayer].money -= squares[playerArray[currentPlayer].currentLocation].getProperty().getPrice();//take the player's money
-                        System.out.println("Your money after the purchase is: " + playerArray[currentPlayer].money);//print the players money after the purchase
+                        playerArray[currentPlayer].setMoney(playerArray[currentPlayer].getMoney() - squares[playerArray[currentPlayer].currentLocation].getProperty().getPrice());//take the player's money
+                        System.out.println("Your money after the purchase is: " + playerArray[currentPlayer].getMoney());//print the players money after the purchase
 
                     }
 
@@ -246,7 +246,7 @@ public class Main {
 
                     //print the each players money
                     for (int playerNum = 0; playerNum<playerArray.length; playerNum++){
-                        System.out.println("Player " + playerArray[playerNum].id + " money is $" + playerArray[playerNum].money);
+                        System.out.println("Player " + playerArray[playerNum].getId() + " money is $" + playerArray[playerNum].getMoney());
                     }
 
                     //break the while loop and terminate the game
