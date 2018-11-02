@@ -1,9 +1,12 @@
 public class Card {
 
-    int price;
-    int goToSquare;
-    Player player;
+    //create card attributes
 
+    int price;//create price for cards that gives or takes price
+    int goToSquare;//create integer for how many squares player jump when the proper card pulled
+    Player player;//take player for this cards
+
+    //getter setter
     public int getPrice() {
         return price;
     }

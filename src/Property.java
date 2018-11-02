@@ -1,14 +1,38 @@
 class Property {
-    private String propertyName;
-    private int price;
-    private int rent;
-    private int housePrice;
-    private int house;
-    private int mortgagePrice;
-    String color;
-    boolean isMortgage=false;
-    boolean hasOwner=false;
 
+    //create propety attributes
+    private String propertyName;//property name
+    private int price;//property value
+    private int rent;//property rent price
+    private int housePrice;//property rent price with houses
+    private int house;//property house building price
+    private int mortgagePrice;//property bank mortgage price
+    String color;//property color
+    boolean isMortgage=false;//is that property mortgaged or not
+    boolean hasOwner=false;//is that property has owner
+
+    //constructors
+    public Property(){
+
+    }
+
+    public Property(int price, int rent, int housePrice, int mortgagePrice, String color) {
+        this.price = price;
+        this.rent = rent;
+        this.housePrice = housePrice;
+        this.house = house;
+        this.mortgagePrice = mortgagePrice;
+        this.color = color;
+    }
+
+    public Property(int price, int rent, int mortgagePrice, String color) {
+        this.price = price;
+        this.rent = rent;
+        this.mortgagePrice = mortgagePrice;
+        this.color = color;
+    }
+
+    //getter setter
     public String getPropertyName() {
         return propertyName;
     }

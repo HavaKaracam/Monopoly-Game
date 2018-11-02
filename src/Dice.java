@@ -2,17 +2,24 @@ import java.lang.Math;
 
 public class Dice {
 
+    //creata dice1 and dice2 and their total
     private int dice1;
     private int dice2;
     private int total = dice1 + dice2;
-   // dice1  = (int)(6*Math.random() + 1);
 
-
+    //dice constructor
     public Dice(int dice1, int dice2) {
         this.dice1 = dice1;
         this.dice2 = dice2;
     }
 
+    //roll two dice at the same time
+    public int roll(){
+        this.total = (int)(10*Math.random()+ 2);
+        return total;
+    }
+
+    //getter setter
     public int getDice1() {
         return dice1;
     }
