@@ -9,10 +9,15 @@ class Property {
     boolean isMortgage=false;
     boolean hasOwner=false;
 
+    public Property(){
+
+    }
+
     public Property(int price, int rent, int housePrice, int mortgagePrice, String color) {
         this.price = price;
         this.rent = rent;
         this.housePrice = housePrice;
+        this.house = house;
         this.mortgagePrice = mortgagePrice;
         this.color = color;
     }

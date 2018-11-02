@@ -1,20 +1,17 @@
 public class Player {
-     private int id;
-    private  int money;
-   private   int totalDebt;
-     Property property[]=new Property [60];
+    int id;
+    int money;
+    int totalDebt;
+    Property property[]=new Property [60];
+    int totalAssetPrice;
+    int debtToPlayers;
+    int debtToBanks;
+    int currentLocation = 0;
+    boolean isJail=false;
+    boolean isBankruptcy=false;
 
-    private  int totalAssetPrice;
-   private  int debtToPlayers;
-    private  int debtToBanks;
-  private   int currentLocation;
-    private  boolean isJail=false;
-    private  boolean isBankruptcy=false;
-
-    public Player(int id) {
+    public Player(int id, int money) {
         this.id = id;
-    }
-    public int increaseTheMoney(int amount){
-        return this.money+amount;
+        this.money = money;
     }
 }

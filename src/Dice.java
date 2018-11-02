@@ -1,16 +1,21 @@
-import java.util.*;
+import java.lang.Math;
 
 public class Dice {
 
     private int dice1;
     private int dice2;
     private int total = dice1 + dice2;
-   // dice1  = (int)(6*Math.random() + 1);
+    // dice1  = (int)(6*Math.random() + 1);
 
 
     public Dice(int dice1, int dice2) {
         this.dice1 = dice1;
         this.dice2 = dice2;
+    }
+
+    public int roll(){
+        this.total = (int)(10*Math.random()+ 2);
+        return total;
     }
 
     public int getDice1() {
@@ -36,13 +41,5 @@ public class Dice {
     public void setTotal(int total) {
         this.total = total;
     }
-int rollDice(int dice1, int dice2){
-        this.dice1=(int)(Math.random()*6+1);
-        System.out.print("First dice: "+ dice1);
-        this.dice2=(int)(Math.random()*6+1);
-        System.out.println("Second dice: "+ dice2);
-        this.total=dice1+dice2;
-        System.out.println("You will move on "+ total+ " square.");
-        return total;
-}
+
 }
