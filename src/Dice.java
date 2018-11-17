@@ -7,6 +7,9 @@ public class Dice {
     private int dice2;
     private int total = dice1 + dice2;
 
+    public Dice() {
+    }
+
     //dice constructor
     public Dice(int dice1, int dice2) {
         this.dice1 = dice1;
@@ -15,8 +18,10 @@ public class Dice {
 
     //roll two dice at the same time
     public int roll(){
-        this.total = (int)(10*Math.random()+ 2);
-        return total;
+        dice1 = (int)(6*Math.random()+1);
+        dice2 = (int)(6*Math.random()+1);
+        this.total = dice1 + dice2;
+        return this.total;
     }
 
     //getter setter
@@ -45,3 +50,4 @@ public class Dice {
     }
 
 }
+ 
