@@ -200,27 +200,4 @@ public class Board {
         return squares;
     }
 
-    public Card getGoToJail() {
-        return goToJail;
-    }
-
-    public Card getThreeBackSquare() {
-        return threeBackSquare;
-    }
-
-    public Card getGain100Dollars() {
-        return gain100Dollars;
-    }
-
-    public Card getDoctorFee() {
-        return doctorFee;
-    }
-
-    public Card getLottery() {
-        return lottery;
-    }
-
-    public Card getGoToStart() {
-        return goToStart;
-    }
 }
