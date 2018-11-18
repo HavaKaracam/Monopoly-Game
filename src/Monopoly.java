@@ -51,6 +51,8 @@ public class Monopoly {
 
                 if(dice.getDice1() == dice.getDice2() && currentPlayer.isJail()){
                     System.out.println("Congratulations you roll the even dice. You can leave the jail now ");
+                }else{
+                    continue;
                 }
 
                 System.out.println("Player" + (playerCounter+1) + "'s turn. Player's dice is " + currentDice);//print the current player and his/her dice

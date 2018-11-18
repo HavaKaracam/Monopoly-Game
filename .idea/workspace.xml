@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="658c182b-2ac8-4572-b038-324fc463b234" name="Default Changelist" comment="make each square do what it has to do">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="658c182b-2ac8-4572-b038-324fc463b234" name="Default Changelist" comment="delete unnecessary methods" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Mahmut\Desktop\Repo\cse3063f18p1_hkaracam_maktas-\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,20 +59,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Monopoly.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Monopoly.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Monopoly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1391">
+            <state relative-caret-position="830">
               <caret line="126" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="181" column="63" lean-forward="true" selection-start-line="181" selection-start-column="63" selection-end-line="181" selection-end-column="63" />
+            <state relative-caret-position="3383">
+              <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
             </state>
           </provider>
         </entry>
@@ -82,7 +80,7 @@
       <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state relative-caret-position="218">
               <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
               <folding>
                 <element signature="e#994#995#0" expanded="true" />
@@ -174,8 +172,8 @@
         <option value="$PROJECT_DIR$/src/Card.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Square.java" />
-        <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/Monopoly.java" />
+        <option value="$PROJECT_DIR$/src/Board.java" />
       </list>
     </option>
   </component>
@@ -190,8 +188,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="225" />
-    <option name="y" value="-14" />
-    <option name="width" value="1439" />
+    <option name="y" value="-15" />
+    <option name="width" value="1440" />
     <option name="height" value="845" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -283,7 +281,7 @@
       <workItem from="1542018766369" duration="1536000" />
       <workItem from="1542450047344" duration="3299000" />
       <workItem from="1542470207583" duration="3359000" />
-      <workItem from="1542538875578" duration="926000" />
+      <workItem from="1542538875578" duration="1215000" />
     </task>
     <task id="LOCAL-00001" summary="comment eklendi">
       <created>1539775927826</created>
@@ -355,15 +353,21 @@
       <option name="project" value="LOCAL" />
       <updated>1542539792635</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="delete unnecessary methods">
+      <created>1542539956018</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1542539956018</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33935000" />
+    <option name="totallyTimeSpent" value="34224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="PlantUML" order="3" show_stripe_button="false" weight="0.43489933" />
       <window_info anchor="right" id="Palette" order="4" />
@@ -376,7 +380,7 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49932885" weight="0.19373219" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2820513" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2820513" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -439,7 +443,8 @@
     <MESSAGE value="added get/set to the player class" />
     <MESSAGE value="project become more moduler" />
     <MESSAGE value="make each square do what it has to do" />
-    <option name="LAST_COMMIT_MESSAGE" value="make each square do what it has to do" />
+    <MESSAGE value="delete unnecessary methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete unnecessary methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -823,17 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-          <folding>
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Card.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -864,17 +858,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="181" column="63" lean-forward="true" selection-start-line="181" selection-start-column="63" selection-end-line="181" selection-end-column="63" />
+        <state relative-caret-position="218">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+          <folding>
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Monopoly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1391">
+        <state relative-caret-position="830">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3383">
+          <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
         </state>
       </provider>
     </entry>
