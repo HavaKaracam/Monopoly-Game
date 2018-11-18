@@ -2,6 +2,16 @@ public class Board {
 
     private Square[] squares = new Square[40];
 
+    private Card goToJail = new Card();
+    private Card threeBackSquare = new Card();
+    private Card gain100Dollars = new Card();
+
+    //create community cards
+    private Card doctorFee = new Card();
+    private Card lottery = new Card();
+    private Card goToStart = new Card();
+
+
     private Property istiklalCaddesi = new Property(50 ,25, 200, 200, "purple");
     private Property baltikCaddesi = new Property(60, 30, 240 ,240, "purple");
     private Property hizliTrenIstasyonu = new Property(300, 100, 400,"white");
@@ -35,14 +45,13 @@ public class Board {
 
     public void initializeGame(){
 
-        Card goToJail = new Card();
-        Card threeBackSquare = new Card();
-        Card gain100Dollars = new Card();
 
-        //create community cards
-        Card doctorFee = new Card();
-        Card lottery = new Card();
-        Card goToStart = new Card();
+        goToJail.setName("Go To Jail Card");
+        threeBackSquare.setName("Three Back Square Card");
+        gain100Dollars.setName("Gain 100 Dollars Card");
+        doctorFee.setName("Doctor Fee Card (-50$)");
+        lottery.setName("Lottery Card (75$)");
+        goToStart.setName("Go To Start Card");
 
         //put the chance and community cards in two array to pull them randomly when user come to them
         Card[] chanceCards = new Card[3];
@@ -149,8 +158,8 @@ public class Board {
         squares[29].setDescription("Küçükçekmece ($280) - Yellow");
         squares[29].setProperty(kucukcekmece);
 
-        squares[30].setDescription("Go to Jail");
-        squares[30].setCard(goToJail);
+        squares[30].setDescription("Chance Cards");
+        squares[30].setCard(pullRandomCard(chanceCards));
 
         squares[31].setDescription("Fatih($300) - Green");
         squares[31].setProperty(fatih);
@@ -173,7 +182,7 @@ public class Board {
         squares[37].setDescription("Dudullu($350) - NavyBlue");
         squares[37].setProperty(dudullu);
 
-        squares[38].setDescription("Tax ($75)");
+        squares[38].setDescription("Government Tax ($75)");
 
         squares[39].setDescription("Tuzla($400) - NavyBlue");
         squares[39].setProperty(tuzla);
@@ -189,5 +198,29 @@ public class Board {
 
     public Square[] getSquares() {
         return squares;
+    }
+
+    public Card getGoToJail() {
+        return goToJail;
+    }
+
+    public Card getThreeBackSquare() {
+        return threeBackSquare;
+    }
+
+    public Card getGain100Dollars() {
+        return gain100Dollars;
+    }
+
+    public Card getDoctorFee() {
+        return doctorFee;
+    }
+
+    public Card getLottery() {
+        return lottery;
+    }
+
+    public Card getGoToStart() {
+        return goToStart;
     }
 }

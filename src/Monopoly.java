@@ -28,39 +28,106 @@ public class Monopoly {
         while(true) {
 
             //create a for loop to loop for the number of players
-            for (int currentPlayer = 0; currentPlayer < playerArray.length; currentPlayer++) {
+            for (int playerCounter = 0; playerCounter < playerArray.length; playerCounter++) {
+
+                Player currentPlayer = playerArray[playerCounter];
+
+                if(currentPlayer.isJail()){
+                    System.out.println("You are in jail. In order to free yourself from jail, pay 50$ or roll dice." +
+                            "If the dices are equal to each other you can be free. To pay 50$ press y");
+                    String answer = input.next();
+                    if (answer.contentEquals("y")){
+                        currentPlayer.setMoney(currentPlayer.getMoney() - 50);
+                        System.out.println("You have paid 50$ now you are free. Your current money is: " + currentPlayer.getMoney());
+                    }
+                    else{
+                        continue;
+                    }
+
+                }
 
                 int currentDice = dice.roll();//roll the dice and assign to a local variable
+                System.out.println("Dice 1 is: " + dice.getDice1() + " Dice 2 is: " + dice.getDice2());
 
-                System.out.println("Player" + currentPlayer + "'s turn. Player's dice is " + currentDice);//print the current player and his/her dice
+                if(dice.getDice1() == dice.getDice2() && currentPlayer.isJail()){
+                    System.out.println("Congratulations you roll the even dice. You can leave the jail now ");
+                }
+
+                System.out.println("Player" + (playerCounter+1) + "'s turn. Player's dice is " + currentDice);//print the current player and his/her dice
 
                 //move the player by the number of dice and print which square she/he is on
-                playerArray[currentPlayer].setCurrentLocation(playerArray[currentPlayer].getCurrentLocation() + currentDice);
+                currentPlayer.setCurrentLocation(currentPlayer.getCurrentLocation() + currentDice);
 
                 //if player exceeds the number of squares. he come to the start point and start again. and earn $200
-                if (playerArray[currentPlayer].getCurrentLocation() > 39) {
-                    playerArray[currentPlayer].setCurrentLocation(playerArray[currentPlayer].getCurrentLocation() - 40);
-                    playerArray[currentPlayer].setMoney(playerArray[currentPlayer].getMoney() + 200);
+                if (playerArray[playerCounter].getCurrentLocation() > 39) {
+                    playerArray[playerCounter].setCurrentLocation(playerArray[playerCounter].getCurrentLocation() - 40);
+                    playerArray[playerCounter].setMoney(playerArray[playerCounter].getMoney() + 200);
                     System.out.println("You have just passed the start point and earned 200 dollars");
                 }
 
-                System.out.println("Player " + currentPlayer + " is current on " + board.getSquares()[playerArray[currentPlayer].getCurrentLocation()].getDescription() + " square");
+                System.out.println("Player " + playerCounter + " is current on " + board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getDescription() + " square");
 
                 //when player come to a property square.
-                if (board.getSquares()[playerArray[currentPlayer].getCurrentLocation()].getProperty().getColor() != null) {//property check
-                    System.out.println("Your money before the purchase is: " + playerArray[currentPlayer].getMoney());//print the players money before the purchase
+                if (board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getProperty().getColor() != null) {//property check
+                    System.out.println("Your money before the purchase is: " + playerArray[playerCounter].getMoney());//print the players money before the purchase
                     System.out.println("Do you want to purchase this property. Press y for yes");//prompt the user if she/he wants to buy this property
                     String answer = input.next();//get the answer
 
                     //if player accept the purchase. the cost of the property will be taken from the player
                     if (answer.contentEquals("y")) {
 
-                        playerArray[currentPlayer].setMoney(playerArray[currentPlayer].getMoney() - board.getSquares()[playerArray[currentPlayer].currentLocation].getProperty().getPrice());//take the player's money
-                        System.out.println("Your money after the purchase is: " + playerArray[currentPlayer].getMoney());//print the players money after the purchase
+                        playerArray[playerCounter].setMoney(playerArray[playerCounter].getMoney() - board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getProperty().getPrice());//take the player's money
+                        System.out.println("Your money after the purchase is: " + playerArray[playerCounter].getMoney());//print the players money after the purchase
 
                     }
 
-                }//property check
+                }//end property check
+                else if(board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getCard().getName() != null) {//card check
+                    Card currentCard = board.getSquares()[currentPlayer.getCurrentLocation()].getCard();
+                    System.out.println("You drew the " + currentCard.getName());
+
+                    switch (currentCard.getName()){
+                        case "Go To Jail Card":
+                            currentPlayer.setJail(true);
+                                break;
+                        case "Three Back Square Card":
+                            board.getSquares()[currentPlayer.getCurrentLocation()].goToSquare(currentPlayer);
+                                break;
+                        case "Gain 100 Dollars Card":
+                            board.getSquares()[currentPlayer.getCurrentLocation()].gain100Dollars(currentPlayer);
+                                break;
+                        case "Doctor Fee Card (-50$)":
+                            board.getSquares()[currentPlayer.getCurrentLocation()].doctorFee(currentPlayer);
+                                break;
+                        case "Lottery Card (75$)":
+                            board.getSquares()[currentPlayer.getCurrentLocation()].lottery(currentPlayer);
+                                break;
+                        case "Go To Start Card":
+                            board.getSquares()[currentPlayer.getCurrentLocation()].goToStart(currentPlayer);
+
+                    }
+
+                }//end card check
+                else{
+
+                    switch (board.getSquares()[currentPlayer.getCurrentLocation()].getDescription()){
+                        case "Income Tax (Pay $200)":
+                            currentPlayer.setMoney(currentPlayer.getMoney() - 200);
+                            System.out.println("You pay the Income Tax 200$. Your money after payment is: "
+                            + currentPlayer.getMoney());
+                            break;
+                        case "Free Parking":
+                            System.out.println("You are on the free parking area.");
+                            break;
+                        case "Government Tax ($75)":
+                            currentPlayer.setMoney(currentPlayer.getMoney() - 75);
+                            System.out.println("You pay the Government Tax 75$. Your money after payment is: "
+                            + currentPlayer.getMoney());
+                            break;
+
+                    }
+
+                }
 
                 //ask players at the end of each turn if they want to finish the gamae
                 System.out.println("If you want to finish the game type 'end' otherwise press anykey");
@@ -81,10 +148,7 @@ public class Monopoly {
                 System.out.println("* * * * * * * * * * *");
             }
 
-
         }
-
-
 
     }
 

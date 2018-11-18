@@ -33,24 +33,34 @@ public class Square {
 
 
     //change the player's location by 3 when this card pulled
-    public void goToSquare(Card goToCard, Player player){
+    public void goToSquare(Player player){
 
-        player.currentLocation -=3;
+        player.setCurrentLocation(player.getCurrentLocation() - 3);
     }
 
     //add 100 dollars to the player when is card pulled
-    public void gain100Dollars(Card gain100Dollars, Player player){
-
-        player.money +=100;
+    public void gain100Dollars(Player player){
+        player.setMoney(player.getMoney() + 100);
     }
 
     //take 50 dollars of doctor fee then this card pulled
-    public void doctorFee (Card doctorFee, Player player){
-        player.money -=50;
+    public void doctorFee (Player player){
+        player.setMoney(player.getMoney() - 100);
     }
 
     //send player to the jail
-    public void goToJail(){}
+    public void goToJail(){
+        card.setGoToSquare(10);
+
+    }
+    public void lottery(Player player){
+        player.setMoney(player.getMoney() + 75);
+    }
+    public void goToStart(Player player){
+        player.setCurrentLocation(0);
+        player.setMoney(200);
+        System.out.println("You earned 200$");
+    }
 
 
 
