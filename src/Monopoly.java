@@ -47,11 +47,12 @@ public class Monopoly {
                 }
 
                 int currentDice = dice.roll();//roll the dice and assign to a local variable
+
                 System.out.println("Dice 1 is: " + dice.getDice1() + " Dice 2 is: " + dice.getDice2());
 
-                if(dice.getDice1() == dice.getDice2() && currentPlayer.isJail()){
+               if(dice.getDice1() == dice.getDice2() && currentPlayer.isJail()){
                     System.out.println("Congratulations you roll the even dice. You can leave the jail now ");
-                }else{
+                }else if(currentPlayer.isJail()){
                     continue;
                 }
 
@@ -71,6 +72,9 @@ public class Monopoly {
 
                 //when player come to a property square.
                 if (board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getProperty().getColor() != null) {//property check
+
+                    Property currentProperty = board.getSquares()[currentPlayer.getCurrentLocation()].getProperty();
+
                     System.out.println("Your money before the purchase is: " + playerArray[playerCounter].getMoney());//print the players money before the purchase
                     System.out.println("Do you want to purchase this property. Press y for yes");//prompt the user if she/he wants to buy this property
                     String answer = input.next();//get the answer
@@ -78,7 +82,8 @@ public class Monopoly {
                     //if player accept the purchase. the cost of the property will be taken from the player
                     if (answer.contentEquals("y")) {
 
-                        playerArray[playerCounter].setMoney(playerArray[playerCounter].getMoney() - board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getProperty().getPrice());//take the player's money
+                        currentPlayer.setPropertyArr(currentProperty);
+                        currentPlayer.setMoney(playerArray[playerCounter].getMoney() - currentProperty.getPrice());//take the player's money
                         System.out.println("Your money after the purchase is: " + playerArray[playerCounter].getMoney());//print the players money after the purchase
 
                     }

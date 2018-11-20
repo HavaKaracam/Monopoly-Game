@@ -4,13 +4,14 @@ public class Player {
     private int id;
     private int money;//player's total cash money
     private int totalDebt;//player's debt to bank and other players
-    private Property[] property = new Property[40];//player's properties
+    private Property[] propertyArr = new Property[40];//player's properties
     private int totalAssetPrice;//player's total asset value including cash and property values
     private int debtToPlayers;//player's debt to other players
     private int debtToBanks;//player'S debt to bank
     private int currentLocation = 0;//player's current location
     private boolean isJail=false;//is that player in jail or not
     private boolean isBankruptcy=false;//is that player has bankrupted or not
+    private int propertyCounter =0;
 
     public Player(int id, int money) {
         this.id = id;
@@ -41,12 +42,13 @@ public class Player {
         this.totalDebt = totalDebt;
     }
 
-    public Property[] getProperty() {
-        return property;
+    public Property[] getPropertyArr() {
+        return propertyArr;
     }
 
-    public void setProperty(Property[] property) {
-        this.property = property;
+    public void setPropertyArr(Property property) {
+        this.propertyArr[propertyCounter] = property;
+        propertyCounter++;
     }
 
     public int getTotalAssetPrice() {
