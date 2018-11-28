@@ -32,6 +32,10 @@ public class Monopoly {
 
                 Player currentPlayer = playerArray[playerCounter];
 
+                if (currentPlayer.isBankruptcy(currentPlayer)){
+                    continue ;
+                }
+
                 if(currentPlayer.isJail()){
                     System.out.println("You are in jail. In order to free yourself from jail, pay 50$ or roll dice." +
                             "If the dices are equal to each other you can be free. To pay 50$ press y");
@@ -39,6 +43,7 @@ public class Monopoly {
                     if (answer.contentEquals("y")){
                         currentPlayer.setMoney(currentPlayer.getMoney() - 50);
                         System.out.println("You have paid 50$ now you are free. Your current money is: " + currentPlayer.getMoney());
+                        currentPlayer.setJail(false);
                     }
                     else{
                         continue;
@@ -46,11 +51,13 @@ public class Monopoly {
 
                 }
 
+                if(currentPlayer.getPropertyArr()[0]!=null){
+                currentPlayer.askForBuildHotel(currentPlayer);}
                 int currentDice = dice.roll();//roll the dice and assign to a local variable
 
                 System.out.println("Dice 1 is: " + dice.getDice1() + " Dice 2 is: " + dice.getDice2());
 
-               if(dice.getDice1() == dice.getDice2() && currentPlayer.isJail()){
+                if(dice.getDice1() == dice.getDice2() && currentPlayer.isJail()){
                     System.out.println("Congratulations you roll the even dice. You can leave the jail now ");
                 }else if(currentPlayer.isJail()){
                     continue;
@@ -68,7 +75,7 @@ public class Monopoly {
                     System.out.println("You have just passed the start point and earned 200 dollars");
                 }
 
-                System.out.println("Player " + playerCounter + " is current on " + board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getDescription() + " square");
+                System.out.println("Player " + playerCounter + " is current on " + board.getSquares()[currentPlayer.getCurrentLocation()].getDescription() + " square");
 
                 //when player come to a property square.
                 if (board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getProperty().getColor() != null) {//property check
@@ -76,18 +83,38 @@ public class Monopoly {
                     Property currentProperty = board.getSquares()[currentPlayer.getCurrentLocation()].getProperty();
 
                     System.out.println("Your money before the purchase is: " + playerArray[playerCounter].getMoney());//print the players money before the purchase
-                    System.out.println("Do you want to purchase this property. Press y for yes");//prompt the user if she/he wants to buy this property
-                    String answer = input.next();//get the answer
 
-                    //if player accept the purchase. the cost of the property will be taken from the player
-                    if (answer.contentEquals("y")) {
+                    if(!currentProperty.isHasOwner()) {
+                        System.out.println("Do you want to purchase this property. Press y for yes");//prompt the user if she/he wants to buy this property
+                        String answer = input.next();//get the answer
 
-                        currentPlayer.setPropertyArr(currentProperty);
-                        currentPlayer.setMoney(playerArray[playerCounter].getMoney() - currentProperty.getPrice());//take the player's money
-                        System.out.println("Your money after the purchase is: " + playerArray[playerCounter].getMoney());//print the players money after the purchase
+                        //if player accept the purchase. the cost of the property will be taken from the player
+                        if (answer.contentEquals("y")) {
+
+                            currentPlayer.setPropertyArr(currentProperty);
+                            currentProperty.setOwner(currentPlayer);
+                            currentPlayer.setMoney(currentPlayer.getMoney() - currentProperty.getPrice());//take the player's money
+                            System.out.println("Your money after the purchase is: " + playerArray[playerCounter].getMoney());//print the players money after the purchase
+
+                            if (currentPlayer.isBankruptcy(currentPlayer)) {
+                                System.out.println("YOU HAVE BANKRUPTED. IT'S NICE TO PLAYING WITH YOU");
+                                continue;
+                            }
+
+                        }
+
+
+
+
+
 
                     }
-
+                    else if(currentProperty.isHasOwner()){
+                        System.out.println("This property is owned by Player " + currentProperty.getOwner().getId() +
+                                ". This location has " + currentProperty.getRent() + "$ rent.");
+                        currentPlayer.setMoney(currentPlayer.getMoney() - currentProperty.getRent());
+                        System.out.println("Your money after rent is: " + currentPlayer.getMoney());
+                    }
                 }//end property check
                 else if(board.getSquares()[playerArray[playerCounter].getCurrentLocation()].getCard().getName() != null) {//card check
                     Card currentCard = board.getSquares()[currentPlayer.getCurrentLocation()].getCard();
@@ -96,19 +123,19 @@ public class Monopoly {
                     switch (currentCard.getName()){
                         case "Go To Jail Card":
                             currentPlayer.setJail(true);
-                                break;
+                            break;
                         case "Three Back Square Card":
                             board.getSquares()[currentPlayer.getCurrentLocation()].goToSquare(currentPlayer);
-                                break;
+                            break;
                         case "Gain 100 Dollars Card":
                             board.getSquares()[currentPlayer.getCurrentLocation()].gain100Dollars(currentPlayer);
-                                break;
+                            break;
                         case "Doctor Fee Card (-50$)":
                             board.getSquares()[currentPlayer.getCurrentLocation()].doctorFee(currentPlayer);
-                                break;
+                            break;
                         case "Lottery Card (75$)":
                             board.getSquares()[currentPlayer.getCurrentLocation()].lottery(currentPlayer);
-                                break;
+                            break;
                         case "Go To Start Card":
                             board.getSquares()[currentPlayer.getCurrentLocation()].goToStart(currentPlayer);
 
@@ -121,7 +148,7 @@ public class Monopoly {
                         case "Income Tax (Pay $200)":
                             currentPlayer.setMoney(currentPlayer.getMoney() - 200);
                             System.out.println("You pay the Income Tax 200$. Your money after payment is: "
-                            + currentPlayer.getMoney());
+                                    + currentPlayer.getMoney());
                             break;
                         case "Free Parking":
                             System.out.println("You are on the free parking area.");
@@ -129,7 +156,7 @@ public class Monopoly {
                         case "Government Tax ($75)":
                             currentPlayer.setMoney(currentPlayer.getMoney() - 75);
                             System.out.println("You pay the Government Tax 75$. Your money after payment is: "
-                            + currentPlayer.getMoney());
+                                    + currentPlayer.getMoney());
                             break;
 
                     }

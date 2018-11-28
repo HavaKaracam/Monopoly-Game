@@ -10,6 +10,8 @@ class Property {
     String color;//property color
     boolean isMortgage=false;//is that property mortgaged or not
     boolean hasOwner=false;//is that property has owner
+    private Player player;
+    private boolean upgraded = false;
 
     //constructors
     public Property(){
@@ -101,7 +103,21 @@ class Property {
         return hasOwner;
     }
 
-    public void setHasOwner(boolean hasOwner) {
-        this.hasOwner = hasOwner;
+
+    public Player getOwner() {
+        return player;
+    }
+
+    public void setOwner(Player player) {
+        this.player = player;
+        hasOwner = true;
+    }
+
+    public boolean isUpgraded() {
+        return upgraded;
+    }
+
+    public void setUpgraded(boolean upgraded) {
+        this.upgraded = upgraded;
     }
 }
