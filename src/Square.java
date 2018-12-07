@@ -58,7 +58,7 @@ public class Square {
     }
     public void goToStart(Player player){
         player.setCurrentLocation(0);
-        player.setMoney(200);
+        player.setMoney(player.getMoney() + 200);
         System.out.println("You earned 200$");
     }
 
