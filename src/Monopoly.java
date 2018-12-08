@@ -51,8 +51,8 @@ public class Monopoly {
 
                 }
 
-                if(currentPlayer.getPropertyArr()[0]!=null){
-                currentPlayer.askForBuildHotel(currentPlayer);}
+           /*     if(currentPlayer.getPropertyArr()[0]!=null){
+                currentPlayer.askForBuildHotel(currentPlayer);}*/
                 int currentDice = dice.roll();//roll the dice and assign to a local variable
 
                 System.out.println("Dice 1 is: " + dice.getDice1() + " Dice 2 is: " + dice.getDice2());
